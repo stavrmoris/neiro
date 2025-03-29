@@ -14,6 +14,7 @@ import utils.database as db
 from __init__ import setup
 from config import TOKEN
 
+
 # Настройка логирования
 logging.basicConfig(
     level=logging.INFO,

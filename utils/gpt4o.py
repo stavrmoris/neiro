@@ -12,7 +12,7 @@ async def text_generate(user_id, prompt, model):
     db.add_message(user_id, f'Я написал: {prompt}')
     history = db.get_message_history(user_id)
     if model == 'gpt-4o':
-        model = "google/gemini-2.0-pro-exp-02-05:free"
+        model = "google/gemini-2.5-pro-exp-03-25:free"
         tokens = db.get_variable(user_id, 'gpt4o-usage')
         db.set_variable(user_id, 'gpt4o-usage', int(tokens)-1)
     else:
