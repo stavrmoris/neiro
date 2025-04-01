@@ -1,25 +1,19 @@
-import requests
-import utils.database as db
+from openai import OpenAI
 
-url = 'https://testsites.pythonanywhere.com/gpt'
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key="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",
+)
 
-model = "google/gemini-2.5-pro-exp-03-25:free"
-
-data = {
-    "data": [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Привет!"
-                }
-            ]
-        }
-    ],
-    "model": model
-}
-
-response = requests.post(url, json=data, verify=False)
-answer = response.text
-print(answer)
+completion = client.chat.completions.create(
+  extra_headers={},
+  extra_body={},
+  model="deepseek/deepseek-chat-v3-0324:free",
+  messages=[
+    {
+      "role": "user",
+      "content": "What is the meaning of life?"
+    }
+  ]
+)
+print(completion.choices[0].message.content)

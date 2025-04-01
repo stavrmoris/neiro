@@ -4,7 +4,7 @@ from openai import OpenAI
 
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+  api_key="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",
 )
 
 async def text_generate(user_id, prompt, model):
