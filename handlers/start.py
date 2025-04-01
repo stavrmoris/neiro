@@ -42,18 +42,17 @@ async def msg_start(message: Message, state: FSMContext, bot: Bot):
         dalle_usage = db.get_variable(user_id, 'dalle-usage')
         gpt4omini_usage = db.get_variable(user_id, 'gpt4omini-usage')
         if gpt4o_usage is None:
-            gpt4o_usage = 'Отсутствует подписка'
+            gpt4o_usage = db.set_variable(user_id, 'gpt4o-usage',50)
         if dalle_usage is None:
-            dalle_usage = 'Отсутствует подписка'
+            dalle_usage = db.set_variable(user_id, 'dalle-usage', 15)
         if gpt4omini_usage is None:
-            gpt4omini_usage = db.set_variable(user_id, 'gpt4omini-usage', 30)
+            gpt4omini_usage = db.set_variable(user_id, 'gpt4omini-usage', 100)
         else:
             if int(gpt4omini_usage) > 30:
                 gpt4omini_usage = '♾️'
 
         await message.answer(f'''
 🤖 Это *абсолютно бесплатный бот* для работы с базовыми нейросетями. Кол-во генераций можно увеличить вдвое, если оформить подписку и, тем самым, поддержать автора. 
-_Если возникли проблемы - пишите @stavrmoris с подробным баг репортом._
 
 ✴️ Баланс генераций:
 ⭐ *GPT-4o mini*: {gpt4omini_usage};
@@ -97,18 +96,17 @@ async def call_start(call: CallbackQuery, state: FSMContext, bot: Bot):
         dalle_usage = db.get_variable(user_id, 'dalle-usage')
         gpt4omini_usage = db.get_variable(user_id, 'gpt4omini-usage')
         if gpt4o_usage is None:
-            gpt4o_usage = 'Отсутствует подписка'
+            gpt4o_usage = db.set_variable(user_id, 'gpt4o-usage',50)
         if dalle_usage is None:
-            dalle_usage = 'Отсутствует подписка'
+            dalle_usage = db.set_variable(user_id, 'dalle-usage', 15)
         if gpt4omini_usage is None:
-            gpt4omini_usage = db.set_variable(user_id, 'gpt4omini-usage', 30)
+            gpt4omini_usage = db.set_variable(user_id, 'gpt4omini-usage', 100)
         else:
             if int(gpt4omini_usage) > 30:
                 gpt4omini_usage = '♾️'
 
         await call.message.answer(f'''
 🤖 Это *абсолютно бесплатный бот* для работы с базовыми нейросетями. Кол-во генераций можно увеличить вдвое, если оформить подписку и, тем самым, поддержать автора. 
-_Если возникли проблемы - пишите @stavrmoris с подробным баг репортом._
 
 ✴️ Баланс генераций:
 ⭐ *GPT-4o mini*: {gpt4omini_usage};
