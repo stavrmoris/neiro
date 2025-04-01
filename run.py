@@ -40,12 +40,12 @@ async def update_user_limits():
                     db.set_variable(user, 'gpt4omini-usage', 100000)
                     logging.info(f"Лимиты пользователя {user} обновлены")
                 else:
-                    db.set_variable(user, 'gpt4o-usage', 0)
-                    db.set_variable(user, 'dalle-usage', 0)
-                    db.set_variable(user, 'gpt4omini-usage', 30)
+                    db.set_variable(user, 'gpt4o-usage', 50)
+                    db.set_variable(user, 'dalle-usage', 15)
+                    db.set_variable(user, 'gpt4omini-usage', 100)
                     logging.info(f"Лимиты пользователя {user} установлены по умолчанию")
             else:
-                db.set_variable(user, 'gpt4omini-usage', 30)
+                db.set_variable(user, 'gpt4omini-usage', 50)
                 logging.info(f"Лимиты пользователя {user} установлены по умолчанию (дата не указана)")
         except Exception as e:
             logging.error(f"Ошибка при обновлении лимитов пользователя {user}: {e}")

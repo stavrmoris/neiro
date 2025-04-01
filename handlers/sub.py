@@ -24,16 +24,16 @@ async def sub(call: CallbackQuery, state: FSMContext, bot: Bot):
 
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="⭐ Оплата TG stars", callback_data='stars')],
-        [InlineKeyboardButton(text="💳 Оплата картой", callback_data='card')],
+        # [InlineKeyboardButton(text="💳 Оплата картой", callback_data='card')],
         [InlineKeyboardButton(text="⬅️ Назад", callback_data='start')],
     ])
 
-    await call.message.answer('''Подписка ⚡️Plus:
+    await call.message.answer('''*Подписка ⚡️Plus:*
 
-- GPT-4o mini — безлимитно;
-- GPT-4o — 100 запросов в день;
-- GPT-4 Vision (Распознавание изображений);
-- Flux - 30 запросов в день;
+*- GPT-4o mini* — безлимитно;
+*- GPT-4o* — 100 запросов в день;
+*- GPT-4 Vision* (Распознавание изображений);
+*- Flux* — 30 запросов в день;
 
 Стоимость: 350р в месяц''', reply_markup=keyboard)
 

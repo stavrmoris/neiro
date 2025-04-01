@@ -24,7 +24,7 @@ async def text_generate(user_id, prompt, model):
                 "content": [
                     {
                         "type": "text",
-                        "text": history
+                        "text": f"{history}"
                     }
                 ]
             }

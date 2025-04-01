@@ -3,7 +3,7 @@ import utils.database as db
 
 url = 'https://testsites.pythonanywhere.com/gpt'
 
-model = "deepseek/deepseek-chat:free"
+model = "google/gemini-2.5-pro-exp-03-25:free"
 
 data = {
     "data": [
